@@ -1,0 +1,23 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+--------------------------------------------------------------
+-- PACKAGE NECESSAIRE A LA CONCEPTION DU RESEAU DE NEURONES --
+--------------------------------------------------------------
+
+PACKAGE PackageSystem IS  					
+	CONSTANT T	: integer := 10;  		-- Seuil
+	CONSTANT VMAX	: integer := 5;		-- Tension maximal
+	CONSTANT VMIN	: integer := 2; 	-- Tension minimal
+	CONSTANT N	: positive := 4; 		-- Nombre d'entrées d'un neurone (=Nombre de Neurones)
+	
+	TYPE TAB IS ARRAY (natural RANGE <>) OF integer;	--tableau d'entier non contraint
+	SUBTYPE TAB_N IS TAB(1 TO N);	 					-- tableau d'indice 1 à N (contient les différents poids)
+
+	TYPE MAT_DIM_2 IS ARRAY(natural RANGE <>) OF TAB_N;	--matrice dimension 2
+	SUBTYPE MAT_D2_N IS MAT_DIM_2(1 TO N); 						-- matrice N*N
+
+	TYPE MAT_DIM_3 IS ARRAY(natural RANGE <>) OF MAT_D2_N;	-- matrice dimension 3
+	SUBTYPE MAT_D3_N IS MAT_DIM_3(0 TO N-1);						-- matrice N*N*N  pour contenir les poids des synpases
+
+	END PackageSystem;

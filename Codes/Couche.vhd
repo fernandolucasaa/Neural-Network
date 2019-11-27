@@ -7,7 +7,7 @@ ENTITY Couche IS
 		Nb_neurones:  integer := 0;	 				-- nombre de neurones de la couche (<< ligne >>)
 		Tab_PoidsSynapsesCouche : MAT_D2_N := (OTHERS=>(OTHERS=>1))); 	-- tableau contenant les poids des synapses (Wi)	
 	PORT(
-		Entree : IN TAB_N;	-- Tableau contenant les entrÈes de la couche
+		Entree : IN TAB_N;	-- Tableau contenant les entr√©es de la couche
 		Sortie : OUT TAB_N);	-- Tableau contenant les sorties de la couche
 		
 END Couche;
@@ -16,9 +16,9 @@ ARCHITECTURE behavior OF Couche IS
 	
 	COMPONENT Neurone
 		GENERIC (
-			Tab_PoidsSynapses : TAB_N := (OTHERS =>1)); 	-- Tableau contenant les poids des synapses, poids initialisÈ par defaut ‡ 1
+			Tab_PoidsSynapses : TAB_N := (OTHERS =>1)); 	-- Tableau contenant les poids des synapses, poids initialis√© par defaut √† 1
 		PORT(
-			Tab_IN_Synapses : IN TAB_N;	-- Tableau contenant les entrÈes du Neurone
+			Tab_IN_Synapses : IN TAB_N;	-- Tableau contenant les entr√©es du Neurone
 			Zout : OUT integer);		-- Sortie du Neuronne
 	END COMPONENT;
 
